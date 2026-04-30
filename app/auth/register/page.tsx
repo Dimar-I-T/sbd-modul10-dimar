@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import axios from "axios";
 
 export default function Register() {
-    const baseUrl = 'http://localhost:3000/user';
+    const baseUrl = 'https://sbd-modul8-backend-dimar.vercel.app/user';
     const router = useRouter();
     const [registerForm, setRegisterForm] = useState<RegisterForm>({
         name: "",

@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import axios from "axios"
 
 export default function ItemsComponent({ user }: Props) {
-    const baseUrl = "http://localhost:3000/items";
+    const baseUrl = "https://sbd-modul8-backend-dimar.vercel.app/items";
     const [items, setItems] = useState<Item[]>([]);
 
     useEffect(() => {

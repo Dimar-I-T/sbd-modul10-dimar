@@ -6,7 +6,7 @@ import axios from "axios";
 export async function POST(req: NextRequest) {
     const cookieStore = await cookies();
     try {
-        const baseUrl = 'http://localhost:3000/user';
+        const baseUrl = 'https://sbd-modul8-backend-dimar.vercel.app/user';
         const body = await req.json();
         const response = await axios.post(`${baseUrl}/login`, body);
         if (response) {
