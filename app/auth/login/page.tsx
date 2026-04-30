@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from "react"
-import { LoginForm, User } from "@/app/types/types"
+import { LoginForm } from "@/app/types/types"
 import { useRouter } from "next/navigation";
 import axios from "axios";
 
