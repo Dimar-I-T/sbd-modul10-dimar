@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation";
 import axios from "axios";
 
 export default function Login() {
-    const baseUrl = 'http://localhost:3000/user';
     const router = useRouter();
     const [loginForm, setLoginForm] = useState<LoginForm>({
         email: "",
@@ -16,24 +15,14 @@ export default function Login() {
     const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
-            const response = await axios.post(`${baseUrl}/login`, loginForm);
+            const response = await axios.post(`/api/auth/login`, loginForm);
             if (response) {
-                const dataForStorage : User = {
-                    name: response.data.payload.name,
-                    username: response.data.payload.username,
-                    email: response.data.payload.email,
-                    phone: response.data.payload.phone,
-                    balance: response.data.payload.balance,
-                    token: response.data.payload.token
-                }
-
-                // janlup kalau get diparse
-                localStorage.setItem("user", JSON.stringify(dataForStorage));
-                alert('Successfully Logged in!\n' + JSON.stringify(response.data));
+                alert('Successfully Logged In!');
                 router.push('/');
+                router.refresh();
             }
         } catch (error: any) {
-            alert('Cannot Login: ' + JSON.stringify(error.response.data.message));
+            alert(error.response.data.message);
         }
     }
 
@@ -46,11 +35,11 @@ export default function Login() {
     }
 
     return (
-        <div className="w-full min-h-screen flex flex-col px-3 justify-center items-center bg-gray-700">
+        <div className="w-full min-h-screen flex flex-col px-3 justify-center items-center bg-gray-800">
             <div className="md:w-[400px] w-full p-10 max-md:p-8 rounded-xl bg-black/50">
                 <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
                     <div className="flex flex-col gap-2">
-                        <h1 className="text-xl">
+                        <h1 className="text-xl text-blue-400">
                             Email
                         </h1>
 
@@ -59,11 +48,11 @@ export default function Login() {
                             value={loginForm.email}
                             onChange={(e) => handleChange("email", e)}
                             placeholder="Enter your email here"
-                            className="border w-full rounded-xl h-10 px-5"
+                            className="border border-blue-400 w-full rounded-xl h-10 px-5"
                         />
                     </div>
                     <div className="flex flex-col gap-2">
-                        <h1 className="text-xl">
+                        <h1 className="text-xl text-blue-400">
                             Password
                         </h1>
 
@@ -72,12 +61,12 @@ export default function Login() {
                             value={loginForm.password}
                             onChange={(e) => handleChange("password", e)}
                             placeholder="Enter your password here"
-                            className="border w-full rounded-xl h-10 px-5"
+                            className="border border-blue-400 w-full rounded-xl h-10 px-5"
                         />
                     </div>
 
                     <button
-                        type="submit" 
+                        type="submit"
                         className="w-full h-15 rounded-xl text-xl text-black font-bold bg-blue-500/90 hover:bg-blue-500 text-center flex justify-center items-center">
                         LOGIN
                     </button>

@@ -27,3 +27,7 @@ export interface Item {
     stock: number;
     created_at: string;
 }
+
+export interface Props {
+    user: User;
+}

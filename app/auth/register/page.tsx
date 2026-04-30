@@ -21,7 +21,7 @@ export default function Register() {
         try {
             const response = await axios.post(`${baseUrl}/register`, registerForm);
             if (response) {
-                alert('Successfully Registered!\n' + JSON.stringify(response.data));
+                alert('Successfully Registered!');
                 router.push('/auth/login');
             }
         } catch (error: any) {
@@ -38,11 +38,11 @@ export default function Register() {
     }
 
     return (
-        <div className="w-full min-h-screen flex flex-col px-3 justify-center items-center bg-gray-700">
+        <div className="w-full min-h-screen mt-7 overflow-y-hidden flex flex-col px-3 justify-center items-center bg-gray-800">
             <div className="md:w-[400px] w-full p-10 max-md:p-8 rounded-xl bg-black/50">
                 <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
                     <div className="flex flex-col gap-2">
-                        <h1 className="text-xl">
+                        <h1 className="text-xl text-blue-400">
                             Name
                         </h1>
 
@@ -51,12 +51,12 @@ export default function Register() {
                             value={registerForm.name}
                             onChange={(e) => handleChange("name", e)}
                             placeholder="Enter your name here"
-                            className="border w-full rounded-xl h-10 px-3"
+                            className="border border-blue-400 w-full rounded-xl h-10 px-3"
                         />
                     </div>
 
                     <div className="flex flex-col gap-2">
-                        <h1 className="text-xl">
+                        <h1 className="text-xl text-blue-400">
                             Username
                         </h1>
 
@@ -65,12 +65,12 @@ export default function Register() {
                             value={registerForm.username}
                             onChange={(e) => handleChange("username", e)}
                             placeholder="Enter your username here"
-                            className="border w-full rounded-xl h-10 px-5"
+                            className="border border-blue-400 w-full rounded-xl h-10 px-5"
                         />
                     </div>
 
                     <div className="flex flex-col gap-2">
-                        <h1 className="text-xl">
+                        <h1 className="text-xl text-blue-400">
                             Email
                         </h1>
 
@@ -79,12 +79,12 @@ export default function Register() {
                             value={registerForm.email}
                             onChange={(e) => handleChange("email", e)}
                             placeholder="Enter your email here"
-                            className="border w-full rounded-xl h-10 px-5"
+                            className="border border-blue-400 w-full rounded-xl h-10 px-5"
                         />
                     </div>
 
                     <div className="flex flex-col gap-2">
-                        <h1 className="text-xl">
+                        <h1 className="text-xl text-blue-400">
                             Phone Number
                         </h1>
 
@@ -93,12 +93,12 @@ export default function Register() {
                             value={registerForm.phone}
                             onChange={(e) => handleChange("phone", e)}
                             placeholder="Enter your phone number here"
-                            className="border w-full rounded-xl h-10 px-5"
+                            className="border border-blue-400 w-full rounded-xl h-10 px-5"
                         />
                     </div>
 
                     <div className="flex flex-col gap-2">
-                        <h1 className="text-xl">
+                        <h1 className="text-xl text-blue-400">
                             Password
                         </h1>
 
@@ -107,7 +107,7 @@ export default function Register() {
                             value={registerForm.password}
                             onChange={(e) => handleChange("password", e)}
                             placeholder="Enter your password here"
-                            className="border w-full rounded-xl h-10 px-5"
+                            className="border border-blue-400 w-full rounded-xl h-10 px-5"
                         />
                     </div>
 

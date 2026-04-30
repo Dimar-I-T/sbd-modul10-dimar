@@ -31,7 +31,6 @@ export default function Items() {
                 }});
 
                 if (result) {
-                    alert('data: ' + JSON.stringify(result.data.payload));
                     setItems(result.data.payload);
                 }
             } catch (error: any) {
@@ -43,7 +42,7 @@ export default function Items() {
     }, [token]);
 
     return (
-        <div className="w-full min-h-screen bg-gray-700 flex flex-col p-10 items-center gap-5">
+        <div className="w-full min-h-screen mt-15 bg-gray-800 flex flex-col p-10 items-center gap-5">
             {items.map((isi, index) => (
                 <div key={index} className="w-[500px] flex flex-col bg-black/50 rounded-xl p-5">
                     <h1 className="text-xl font-bold text-blue-400">
@@ -51,11 +50,11 @@ export default function Items() {
                     </h1>
 
                     <h1 className="text-xl font-bold text-blue-400">
-                        Price: {isi.price}
+                        Price: <span className="text-white font-medium"> {isi.price} </span>
                     </h1>
 
                     <h1 className="text-xl font-bold text-blue-400">
-                        Stock: {isi.stock}
+                        Stock: <span className="text-white font-medium"> {isi.stock} </span>
                     </h1>
                 </div>
             ))}
