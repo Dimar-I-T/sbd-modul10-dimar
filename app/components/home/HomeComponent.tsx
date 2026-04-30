@@ -29,10 +29,10 @@ export default function HomeComponent({ user }: Props) {
 
                     {!user &&
                         <>
-                            <Button src="/items">
+                            <Button src="/auth/register" >
                                 Register
                             </Button>
-                            <Button src="/profile">
+                            <Button src="/auth/login">
                                 Login
                             </Button>
                         </>
